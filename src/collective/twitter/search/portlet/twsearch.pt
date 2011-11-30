@@ -1,0 +1,34 @@
+<dl class="portlet twitterSearchPortlet"
+    i18n:domain="collective.twitter.search">
+
+    <dt class="portletHeader" tal:condition="view/getHeader">
+        <span class="portletTopLeft"></span>
+        <span tal:content="view/getHeader" />
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd"
+        tal:define="results view/getSearchResults;
+                    toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+        <div tal:repeat="result results">
+            <a href="#"
+               tal:define="screen_name python:result.GetUser().GetScreenName()"
+               tal:attributes="href string:http://twitter.com/#!/${screen_name}">
+                <img src="#"
+                     tal:condition="view/data/show_avatars"
+                     tal:attributes="src python:result.GetUser().GetProfileImageUrl()"
+                     style="width:48px;height:48px"/>
+                <span tal:content="screen_name"/>
+            </a>
+            <span tal:replace="structure python:view.getTweet(result)"/>
+            <p tal:content="python:toLocalizedTime(view.getDate(result), long_format=1)"/>
+        </div>
+    </dd>
+
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        <!-- Footer -->
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<portlets
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <portlet title="Twitter search Portlet"
+    addview="collective.twitter.search.TwitterSearchPortlet"
+    description="A portlet to show search results from Twitter"
+    i18n:attributes="title; description">
+  <for interface="plone.app.portlets.interfaces.IColumn" />
+  <for interface="plone.app.portlets.interfaces.IDashboard" />
+ </portlet>
+
+ <!--
+ <assignment
+    manager="plone.leftcolumn"
+    category="context"
+    key="/"
+    type="collective.twitter.search.TwitterSearchPortlet"
+    name="twitter-search"
+        /> -->
+        
+</portlets>
