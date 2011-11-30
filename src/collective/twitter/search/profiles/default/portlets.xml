@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <portlets
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="collective.twitter.search">
+
  <portlet title="Twitter search Portlet"
     addview="collective.twitter.search.TwitterSearchPortlet"
     description="A portlet to show search results from Twitter"

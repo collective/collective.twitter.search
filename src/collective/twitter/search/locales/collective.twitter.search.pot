@@ -1,0 +1,72 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-11-30 02:02+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.twitter.search\n"
+
+#: collective/twitter/search/profiles/default/portlets.xml
+msgid "A portlet to show search results from Twitter"
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:143
+msgid "Could not search in Twitter, seems the account %s was removed from the list of authorized accounts for this site."
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:44
+msgid "Header"
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:61
+msgid "Maximum results"
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:53
+msgid "Search string"
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:57
+msgid "Show avatars"
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:58
+msgid "Show people's avatars."
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:45
+msgid "The header for the portlet. Leave empty for none."
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:62
+msgid "The maximum results number."
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:48
+msgid "Twitter account"
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:100
+#: collective/twitter/search/profiles/default/portlets.xml
+msgid "Twitter search Portlet"
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:54
+msgid "What to search."
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:49
+msgid "Which twitter account to use."
+msgstr ""
+
