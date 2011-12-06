@@ -17,8 +17,12 @@ from zope.schema.interfaces import IContextSourceBinder
 
 from collective.twitter.search import _
 
+from plone.memoize import ram
+
+
 import DateTime
 import twitter
+import hashlib
 
 def TwitterAccounts(context):
     registry = getUtility(IRegistry)
@@ -33,6 +37,11 @@ def TwitterAccounts(context):
 
 alsoProvides(TwitterAccounts, IContextSourceBinder)
 
+
+def cache_key_simple(func, var):
+    return hashlib.md5(var.context.id).hexdigest()
+
+    
 class ITwitterSearchPortlet(IPortletDataProvider):
     """A portlet
 
@@ -118,6 +127,7 @@ class Renderer(base.Renderer):
         """
         return self.data.header
 
+    @ram.cache(cache_key_simple)
     def getSearchResults(self):
         registry = getUtility(IRegistry)
         accounts = registry['collective.twitter.accounts']
