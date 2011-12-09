@@ -7,28 +7,38 @@
         <span class="portletTopRight"></span>
     </dt>
 
-    <dd class="portletItem odd"
+    <dd class="portletItem"
         tal:define="results view/getSearchResults;
-                    toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-        <div tal:repeat="result results">
-            <a href="#"
-               tal:define="screen_name python:result.GetUser().GetScreenName()"
-               tal:attributes="href string:http://twitter.com/#!/${screen_name}">
-                <img src="#"
+                    toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
+        tal:attributes="class python:'portletItem ' + ('avatar-on' if view.data.show_avatars else 'avatar-off')">
+        <div class="result-item" tal:repeat="result results">
+            <div class="tweet-image">
+                <img class="avatar"
+                     src="#"
                      tal:condition="view/data/show_avatars"
-                     tal:attributes="src python:result.GetUser().GetProfileImageUrl()"
-                     style="width:48px;height:48px"/>
-                <span tal:content="screen_name"/>
-            </a>
-            <span tal:replace="structure python:view.getTweet(result)"/>
-            <p tal:content="python:toLocalizedTime(view.getDate(result), long_format=1)"/>
+                     tal:attributes="src python:result.GetUser().GetProfileImageUrl()"/>
+            </div>
+            <div class="tweet-content">
+                <div class="tweet-row">
+                    <span class="tweet-user-name">
+                        <a class="tweet-screen-name"
+                           href="#"
+                           tal:define="screen_name python:result.GetUser().GetScreenName()"
+                           tal:attributes="href string:http://twitter.com/#!/${screen_name}">
+                            <span tal:content="screen_name"/>
+                        </a>
+                    </span>
+                </div>
+                <div class="tweet-row">
+                    <div class="tweet-text">
+                        <span tal:replace="structure python:view.getTweet(result)"/>
+                    </div>
+                </div>
+                <div class="tweet-row">
+                    <span class="tweet-timestamp" 
+                          tal:content="python:toLocalizedTime(view.getDate(result), long_format=1)"></span>
+                </div>
+            </div>
         </div>
     </dd>
-
-    <dd class="portletFooter">
-        <span class="portletBottomLeft"></span>
-        <!-- Footer -->
-        <span class="portletBottomRight"></span>
-    </dd>
-
 </dl>
