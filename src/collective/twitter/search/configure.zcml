@@ -17,7 +17,15 @@
        name="default"
        title="collective.twitter.search"
        directory="profiles/default"
-       description=""
+       description="Installs the collective.twitter.search package"
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       />
+
+    <genericsetup:registerProfile
+       name="initial"
+       title="collective.twitter.search"
+       directory="profiles/initial"
+       description="Installs the collective.twitter.search package (Initial setup)"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
 
