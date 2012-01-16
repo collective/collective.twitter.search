@@ -1,11 +1,11 @@
-# Franco Pellegrini <frapell@gmail.com>, 2011.
+# Franco Pellegrini <frapell@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.twitter.search\n"
-"POT-Creation-Date: 2011-12-24 15:33+0000\n"
-"PO-Revision-Date: 2011-11-29 23:03-0300\n"
-"Last-Translator: Franco Pellegrini <frapell@gmail.com>\n"
-"Language-Team: Spanish <https://github.com/collective>\n"
+"POT-Creation-Date: 2012-01-16 22:46+0000\n"
+"PO-Revision-Date: 2012-01-16 19:47-0300\n"
+"Last-Translator: Franco Pellegrini\n"
+"Language-Team: Spanish <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,52 +21,57 @@ msgstr ""
 msgid "A portlet to show search results from Twitter"
 msgstr "Un portlet para mostrar resultados de búsquedas en Twitter"
 
-#: collective/twitter/search/portlet/twsearch.py:153
-msgid "Could not search in Twitter, seems the account %s was removed from the list of authorized accounts for this site."
-msgstr "No se pudo buscar en Twitter, parece que la cuenta %s fue removida de la lista de cuentas autorizadas para este sitio."
-
-#: collective/twitter/search/portlet/twsearch.py:53
+#: collective/twitter/search/portlet/twsearch.py:60
 msgid "Header"
 msgstr "Cabecera"
 
-#: collective/twitter/search/portlet/twsearch.py:70
+#: collective/twitter/search/portlet/twsearch.py:77
 msgid "Maximum results"
 msgstr "Resultados máximos"
 
-#: collective/twitter/search/portlet/twsearch.py:62
+#: collective/twitter/search/portlet/twsearch.py:69
 msgid "Search string"
 msgstr "Cadena de búsqueda"
 
-#: collective/twitter/search/portlet/twsearch.py:66
+#: collective/twitter/search/portlet/twsearch.py:73
 msgid "Show avatars"
 msgstr "Mostrar avatares"
 
-#: collective/twitter/search/portlet/twsearch.py:67
+#: collective/twitter/search/portlet/twsearch.py:74
 msgid "Show people's avatars."
 msgstr "Mostrar los avatares de las personas."
 
-#: collective/twitter/search/portlet/twsearch.py:54
+#: collective/twitter/search/portlet/twsearch.pt:50
+msgid ""
+"The Twitter account used to display content in this portlet appears to be "
+"invalid"
+msgstr ""
+"La cuenta Twitter utilizada para mostrar el contenido en el portlet parece "
+"inválida"
+
+#: collective/twitter/search/portlet/twsearch.py:61
 msgid "The header for the portlet. Leave empty for none."
 msgstr "La cabecera para el portlet. Dejar vacío para ninguna."
 
-#: collective/twitter/search/portlet/twsearch.py:71
+#: collective/twitter/search/portlet/twsearch.py:78
 msgid "The maximum results number."
 msgstr "El número máximo de resultados."
 
-#: collective/twitter/search/portlet/twsearch.py:57
+#: collective/twitter/search/portlet/twsearch.py:64
 msgid "Twitter account"
 msgstr "Cuenta de Twitter"
 
-#: collective/twitter/search/portlet/twsearch.py:109
+#: collective/twitter/search/portlet/twsearch.py:116
 #: collective/twitter/search/profiles/default/portlets.xml
 msgid "Twitter search Portlet"
 msgstr "Portlet de búsqueda en Twitter"
 
-#: collective/twitter/search/portlet/twsearch.py:63
+#: collective/twitter/search/portlet/twsearch.py:70
 msgid "What to search."
 msgstr "Qué buscar"
 
-#: collective/twitter/search/portlet/twsearch.py:58
+#: collective/twitter/search/portlet/twsearch.py:65
 msgid "Which twitter account to use."
 msgstr "Qué cuenta de Twitter utilizar."
+
 

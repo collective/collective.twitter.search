@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-12-24 15:33+0000\n"
+"POT-Creation-Date: 2012-01-16 22:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,52 +21,52 @@ msgstr ""
 msgid "A portlet to show search results from Twitter"
 msgstr ""
 
-#: collective/twitter/search/portlet/twsearch.py:153
-msgid "Could not search in Twitter, seems the account %s was removed from the list of authorized accounts for this site."
-msgstr ""
-
-#: collective/twitter/search/portlet/twsearch.py:53
+#: collective/twitter/search/portlet/twsearch.py:60
 msgid "Header"
 msgstr ""
 
-#: collective/twitter/search/portlet/twsearch.py:70
+#: collective/twitter/search/portlet/twsearch.py:77
 msgid "Maximum results"
 msgstr ""
 
-#: collective/twitter/search/portlet/twsearch.py:62
+#: collective/twitter/search/portlet/twsearch.py:69
 msgid "Search string"
 msgstr ""
 
-#: collective/twitter/search/portlet/twsearch.py:66
+#: collective/twitter/search/portlet/twsearch.py:73
 msgid "Show avatars"
 msgstr ""
 
-#: collective/twitter/search/portlet/twsearch.py:67
+#: collective/twitter/search/portlet/twsearch.py:74
 msgid "Show people's avatars."
 msgstr ""
 
-#: collective/twitter/search/portlet/twsearch.py:54
+#: collective/twitter/search/portlet/twsearch.pt:50
+msgid "The Twitter account used to display content in this portlet appears to be invalid"
+msgstr ""
+
+#: collective/twitter/search/portlet/twsearch.py:61
 msgid "The header for the portlet. Leave empty for none."
 msgstr ""
 
-#: collective/twitter/search/portlet/twsearch.py:71
+#: collective/twitter/search/portlet/twsearch.py:78
 msgid "The maximum results number."
 msgstr ""
 
-#: collective/twitter/search/portlet/twsearch.py:57
+#: collective/twitter/search/portlet/twsearch.py:64
 msgid "Twitter account"
 msgstr ""
 
-#: collective/twitter/search/portlet/twsearch.py:109
+#: collective/twitter/search/portlet/twsearch.py:116
 #: collective/twitter/search/profiles/default/portlets.xml
 msgid "Twitter search Portlet"
 msgstr ""
 
-#: collective/twitter/search/portlet/twsearch.py:63
+#: collective/twitter/search/portlet/twsearch.py:70
 msgid "What to search."
 msgstr ""
 
-#: collective/twitter/search/portlet/twsearch.py:58
+#: collective/twitter/search/portlet/twsearch.py:65
 msgid "Which twitter account to use."
 msgstr ""
 
