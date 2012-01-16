@@ -15,10 +15,12 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.registry.interfaces import IRegistry
 from zope.schema.interfaces import IContextSourceBinder
 
+from zope.security import checkPermission
+
 from collective.twitter.search import _
 
 from plone.memoize import ram
-
+from time import time
 
 import DateTime
 import twitter
@@ -39,7 +41,12 @@ alsoProvides(TwitterAccounts, IContextSourceBinder)
 
 
 def cache_key_simple(func, var):
-    return hashlib.md5(var.context.id).hexdigest()
+    #let's memoize for 10 minutes or if any value of the portlet is modified
+    timeout = time() // (60 * 10)
+    return (timeout,
+            var.data.tw_account,
+            var.data.search_string,
+            var.data.max_results)
 
     
 class ITwitterSearchPortlet(IPortletDataProvider):
@@ -127,15 +134,25 @@ class Renderer(base.Renderer):
         """
         return self.data.header
 
+    def canEdit(self):
+        return checkPermission('cmf.ModifyPortalContent', self.context)
+
+    def isValidAccount(self):
+        registry = getUtility(IRegistry)
+        accounts = registry.get('collective.twitter.accounts', [])
+
+        return self.data.tw_account in accounts
+        
     @ram.cache(cache_key_simple)
     def getSearchResults(self):
         registry = getUtility(IRegistry)
-        accounts = registry['collective.twitter.accounts']
+        accounts = registry.get('collective.twitter.accounts', [])
 
         ploneutils = getToolByName(self.context, 'plone_utils')
         
         account = accounts.get(self.data.tw_account, {})
-
+        results = []
+        
         if account:
             tw =  twitter.Api(consumer_key = account.get('consumer_key'),
                               consumer_secret = account.get('consumer_secret'),
@@ -146,16 +163,8 @@ class Renderer(base.Renderer):
             max_results = self.data.max_results
             
             results = tw.GetSearch(search_str, per_page=max_results)
-            return results
-            
-                      
-        else:
-            msg = _("Could not search in Twitter, seems the account %s "
-                    "was removed from the list of authorized accounts for this "
-                    "site." % self.data.tw_account)
-                    
-            ploneutils.addPortalMessage( msg )
-            self.context.REQUEST.response.redirect(obj.absolute_url())
+
+        return results
 
 
     def getTweet(self, result):
