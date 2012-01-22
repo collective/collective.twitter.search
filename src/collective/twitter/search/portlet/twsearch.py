@@ -14,6 +14,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone.registry.interfaces import IRegistry
 from zope.schema.interfaces import IContextSourceBinder
+from collective.prettydate.interfaces import IPrettyDate
 
 from zope.security import checkPermission
 
@@ -79,6 +80,11 @@ class ITwitterSearchPortlet(IPortletDataProvider):
                                required=True,
                                default=20)
 
+    pretty_date = schema.Bool(title=_(u'Pretty dates'),
+                              description=_(u"Show dates in a pretty format (ie. '4 hours ago')."),
+                              default=True,
+                              required=False)
+
 
 class Assignment(base.Assignment):
     """Portlet assignment.
@@ -94,19 +100,22 @@ class Assignment(base.Assignment):
     search_string = u""
     show_avatars = u""
     max_results = 20
+    pretty_date = True
     
     def __init__(self,
                  tw_account,
                  search_string,
                  max_results,
                  header=u"",
-                 show_avatars=u""):
+                 show_avatars=u"",
+                 pretty_date=True):
                      
         self.header = header
         self.tw_account = tw_account
         self.search_string = search_string
         self.show_avatars = show_avatars
         self.max_results = max_results
+        self.pretty_date = pretty_date
 
     @property
     def title(self):
@@ -202,8 +211,12 @@ class Renderer(base.Renderer):
         return "<p>%s</p>"%' '.join(split_text)
 
     def getDate(self, result):
-        # Returns human readable date for the tweet
-        date = DateTime.DateTime(result.GetCreatedAt())
+        if self.data.pretty_date:
+            # Returns human readable date for the tweet
+            date_utility = getUtility(IPrettyDate)
+            date = date_utility.date(result.GetCreatedAt())
+        else:
+            date = DateTime.DateTime(result.GetCreatedAt())
 
         return date
         

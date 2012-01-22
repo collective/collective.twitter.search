@@ -31,6 +31,7 @@ setup(name='collective.twitter.search',
       install_requires=[
         'setuptools',
         'collective.twitter.accounts',
+        'collective.prettydate',
         ],
       extras_require={
         'test': ['plone.app.testing'],
