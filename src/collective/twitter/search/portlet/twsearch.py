@@ -18,6 +18,7 @@ from collective.prettydate.interfaces import IPrettyDate
 
 from zope.security import checkPermission
 
+from collective.twitter.search.config import PROJECTNAME
 from collective.twitter.search import _
 
 from plone.memoize import ram
@@ -26,6 +27,9 @@ from time import time
 import DateTime
 import twitter
 import hashlib
+import logging
+
+logger = logging.getLogger(PROJECTNAME)
 
 def TwitterAccounts(context):
     registry = getUtility(IRegistry)
@@ -154,6 +158,7 @@ class Renderer(base.Renderer):
         
     @ram.cache(cache_key_simple)
     def getSearchResults(self):
+        logger.info("Getting tweets.")
         registry = getUtility(IRegistry)
         accounts = registry.get('collective.twitter.accounts', [])
 
@@ -163,6 +168,12 @@ class Renderer(base.Renderer):
         results = []
         
         if account:
+            logger.info("Got a valid account.")
+            logger.info("consumer_key = %s"%account.get('consumer_key'))
+            logger.info("consumer_secret = %s"%account.get('consumer_secret'))
+            logger.info("access_token_key = %s"%account.get('oauth_token'))
+            logger.info("access_token_secret = %s"%account.get('oauth_token_secret'))
+            
             tw =  twitter.Api(consumer_key = account.get('consumer_key'),
                               consumer_secret = account.get('consumer_secret'),
                               access_token_key = account.get('oauth_token'),
@@ -171,7 +182,12 @@ class Renderer(base.Renderer):
             search_str = self.data.search_string
             max_results = self.data.max_results
             
-            results = tw.GetSearch(search_str, per_page=max_results)
+            try:
+                results = tw.GetSearch(search_str, per_page=max_results)
+                logger.info("%s results obtained."%len(results))
+            except Exception, e:
+                logger.info("Something went wrong: %s."%e)
+                results = []
 
         return results
 

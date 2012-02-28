@@ -2,7 +2,8 @@ from Products.CMFCore.utils import getToolByName
 
 def install(portal, reinstall=False):
     setup_tool = getToolByName(portal, 'portal_setup')
-    if not reinstall:
+    qi = getToolByName(portal, 'portal_quickinstaller')
+    if not reinstall and not qi.isProductInstalled('collective.twitter.accounts'):
         setup_tool.runAllImportStepsFromProfile('profile-collective.twitter.search:initial')
 
     setup_tool.runAllImportStepsFromProfile('profile-collective.twitter.search:default')
